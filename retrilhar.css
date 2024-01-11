@@ -1,0 +1,42 @@
+.spd-wrap h2{display:none}
+.spd-wrap{padding:0}
+.spd-wrap .row div.mb-4{margin: 0.5rem 0!important}
+.side-booking-header{padding:0.8rem}
+.side-booking-body{padding: 1rem 0 0}
+@media (min-width: 1024px) {
+.side-booking-wrap{border:0!important;margin:-51px 0 15px!important;}
+}
+div.block-wrap.mt-4{text-align: justify;margin-top: 0.5rem!important;padding: 0 20px;}
+.sec-heading p, .sec-heading h2{
+	display:none;
+}
+.sec-heading{margin: 10px;}
+#main-wrapper > div.container > section.gray > div > div.card{margin-top:10px;}
+
+.nav-brand{padding: 5px 15px 0;}
+.nav-menu > li > a {padding: 30px 12px 20px;}
+
+img.img-footer{max-width: 60%;}
+footer {padding: 20px;}
+
+body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento option:checked:not([value])) > div:not(:nth-child(1)){
+    display: none!important;
+}
+.carousel-item:nth-child(1)::after{
+    content: '';
+    background-image: url('https://thumbs.bfldr.com/at/hw96grbwrnh5bqrw7tj5fw4p?expiry=1693339552&fit=bounds&height=800&sig=NGIyNTMzNTU4MTgzODRhNjNhZDk2MzE3NzM3MmJlMjI0MDczZWU5ZQ%3D%3D&width=1100');
+    width: -webkit-fill-available;
+    display: inline-block;
+    height: -webkit-fill-available;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-size: contain;
+}
+.heading-card-pagamento{color:white;padding:0;font-size: 12px;}
+.heading-card-pagamento::before {
+  font-weight: bold;font-size: 15px;
+  color: #2d3954;
+  content: "Entraremos em contato para concluir o pagamento. Dúvidas: 61 99128-1086";
+}
