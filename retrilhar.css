@@ -51,4 +51,4 @@ body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento opt
 div.row:contains(' Facebook'), div.modal-divider:contains('Ou login'){
 	display: none!important;
 }
-#formLoginModal .input-group .form-control {border: 1px solid #e0ecf5;}
+#formLoginModal > .input-group .form-control {border: 1px solid #e0ecf5;}
