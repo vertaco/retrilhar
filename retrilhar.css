@@ -49,5 +49,5 @@ body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento opt
     background-size: calc(.75em + .375rem) calc(.75em + .375rem);
 }
 div.row:contains(' Facebook'), div.modal-divider:contains('Ou login'){
-	display: none;
+	display: none!important;
 }
