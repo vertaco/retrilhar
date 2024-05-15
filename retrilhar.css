@@ -48,7 +48,7 @@ body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento opt
     background-position: right calc(.375em + .1875rem) center;
     background-size: calc(.75em + .375rem) calc(.75em + .375rem);
 }
-#formLoginModal > .row:has(.btn-facebook), div.modal-divider:contains('Ou login'){
+.row:has(.btn-facebook){
 	display: none!important;
 }
 #formLoginModal > .input-group .form-control {border: 1px solid #e0ecf5;}
