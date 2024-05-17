@@ -6,4 +6,9 @@ $(function(){
 $('#formReservaNova').addClass('was-validated');
 $('[required]').prev('label').append('<span style="color:red;"> *</span>');
 $(':input[required]').closest('.input-group, .phone').prev('label').append('<span style="color:red;"> *</span>');
+$('#extra_re_peso').attr('min','20').val('');
+$('#extra_re_altura').attr('min','0.1').val('');
+if($('#email').is(':disabled') && $('#nome').val()){
+  $('#nome').attr('readonly', true);
+}
 });
