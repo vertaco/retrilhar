@@ -8,7 +8,11 @@ $('[required]').prev('label').append('<span style="color:red;"> *</span>');
 $(':input[required]').closest('.input-group, .phone').prev('label').append('<span style="color:red;"> *</span>');
 $('#extra_re_peso').attr('min','20').val('');
 $('#extra_re_altura').attr('min','0.1').val('');
+if($('#endereco'))$('#endereco').parent().parent().parent().remove();
 if($('#email').is(':disabled') && $('#nome').val()){
   $('#nome').attr('readonly', true);
+  if($('input[name="participante[cpf]"]').val()){
+    $('input[name="participante[cpf]"]').attr('readonly', true);
+  }
 }
 });
