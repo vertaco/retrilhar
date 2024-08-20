@@ -56,3 +56,4 @@ body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento opt
 }
 .login-form + div p {margin: 0!important;}
 .modal-body:has(.login-form) > .alert-warning {display: none;}
+.form-group:has(#qt){display: none;}
