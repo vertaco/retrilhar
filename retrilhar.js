@@ -16,3 +16,23 @@ if($('#email').is(':disabled') && $('#nome').val()){
   }
 }
 });
+function getCookie(nome) {
+    var nomeIgual = nome + "=";
+    var decodedCookie = decodeURIComponent(document.cookie); // Decodifica a string de cookies
+    var ca = decodedCookie.split(';'); // Separa os cookies
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(nomeIgual) == 0) {
+            return c.substring(nomeIgual.length, c.length); // Retorna o valor do cookie
+        }
+    }
+    return ""; // Retorna uma string vazia se o cookie não for encontrado
+}
+var afiliado_ = new URLSearchParams(window.location.search).get('afiliado');
+if(afiliado_ == null){
+  afiliado_ = getCookie('afiliado');
+}
+if(afiliado_ == 'trilheiras'){
+  $('.main-banner').prepend('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
+}
+
