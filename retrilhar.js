@@ -31,6 +31,12 @@ function getCookie(nome) {
 var afiliado_ = new URLSearchParams(window.location.search).get('afiliado');
 if(afiliado_ == null){
   afiliado_ = getCookie('afiliado');
+  if(afiliado_ != null){
+    var data = new Date();
+    data.setTime(data.getTime() + (1 * 24 * 60 * 60 * 1000)); // 1 dia
+    var expires = "expires=" + data.toUTCString(); // Formata a data de expiração
+    document.cookie = 'afiliado='+afiliado_+'; '+expires+'; path=/;';
+  }
 }
 if(afiliado_ == 'trilheiras'){
   $('.main-banner').prepend('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
