@@ -38,10 +38,13 @@ if(afiliado_ == null){
     document.cookie = 'afiliado='+afiliado_+'; '+expires+'; path=/;';
   }
 }
-if(location.pathname.startsWith('/reserva/')){
-   $('.card-title').css('display','inline');
-  $('.card-title').after('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="max-height: 35px;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
-} else if(afiliado_ == 'trilheiras'){
-  $('.main-banner').prepend('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
+if(afiliado_ != null && afiliado_ != ''){
+  if(location.pathname.startsWith('/reserva/')){
+    $('.card-title').css('display','inline');
+    if(afiliado_ == 'trilheiras'){
+      $('.card-title').after('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="max-height: 35px;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
+    }
+  } else if(afiliado_ == 'trilheiras'){
+    $('.main-banner').prepend('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
+  }
 }
-
