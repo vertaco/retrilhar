@@ -43,8 +43,12 @@ if(afiliado_ != null && afiliado_ != ''){
     $('.card-title').css('display','inline');
     if(afiliado_ == 'trilheiras'){
       $('.card-title').after('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="max-height: 35px;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
+    } else if(afiliado_ == 'balonismo'){
+      $('.card-title').after('<img src="https://i.ibb.co/WpDfQy3m/cerrado-balonismo.png" style="max-height: 35px;" alt="Parceiros: Cerrado Balonismo" title="Parceiros: Cerrado Balonismo">');
     }
   } else if(afiliado_ == 'trilheiras'){
     $('.main-banner').prepend('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
+  } else if(afiliado_ == 'balonismo'){
+    $('.main-banner').prepend('<img src="https://i.ibb.co/WpDfQy3m/cerrado-balonismo.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Cerrado Balonismo" title="Parceiros: Cerrado Balonismo">');
   }
 }
