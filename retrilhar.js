@@ -33,7 +33,7 @@ if(afiliado_ == null){
   afiliado_ = getCookie('afiliado');
   if(afiliado_ != null){
     var data = new Date();
-    data.setTime(data.getTime() + (1 * 24 * 60 * 60 * 1000)); // 1 dia
+    data.setTime(data.getTime() + (5 * 24 * 60 * 60 * 1000)); // 5 dias
     var expires = "expires=" + data.toUTCString(); // Formata a data de expiração
     document.cookie = 'afiliado='+afiliado_+'; '+expires+'; path=/;';
   }
@@ -45,10 +45,19 @@ if(afiliado_ != null && afiliado_ != ''){
       $('.card-title').after('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="max-height: 35px;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
     } else if(afiliado_ == 'balonismo'){
       $('.card-title').after('<img src="https://i.ibb.co/WpDfQy3m/cerrado-balonismo.png" style="max-height: 35px;" alt="Parceiros: Cerrado Balonismo" title="Parceiros: Cerrado Balonismo">');
+    } else if(afiliado_ == 'cecerrado'){
+      $('.card-title').after('<img src="https://i.ibb.co/TJzxHSg/logocerrado.png" style="max-height: 50px;" alt="Parceiros: Cerrado Experience" title="Parceiros: Cerrado Experience">');
+    } else if(afiliado_ == 'jannaguia'){
+      $('.card-title').after('<img src="https://i.ibb.co/RpmtdwZC/logojanna.png" style="max-height: 30px;" alt="Parceiros: Janna Guia Ecovivências" title="Parceiros: Janna Guia Ecovivências">');
     }
+  } else if(afiliado_ == 'cecerrado'){
+    $('.main-banner').prepend('<img src="https://i.ibb.co/TJzxHSg/logocerrado.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Cerrado Experience" title="Parceiros: Cerrado Experience">');
   } else if(afiliado_ == 'trilheiras'){
     $('.main-banner').prepend('<img src="https://i.ibb.co/kBCzVtT/logo-Trilheiras.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Trilheiras de Brasília" title="Parceiros: Trilheiras de Brasília">');
   } else if(afiliado_ == 'balonismo'){
     $('.main-banner').prepend('<img src="https://i.ibb.co/WpDfQy3m/cerrado-balonismo.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Cerrado Balonismo" title="Parceiros: Cerrado Balonismo">');
+  } else if(afiliado_ == 'jannaguia'){
+    $('.main-banner').prepend('<img src="https://i.ibb.co/RpmtdwZC/logojanna.png" style="position: absolute;max-height: 30px;right: 0;top: 0;" alt="Parceiros: Janna Guia Ecovivências" title="Parceiros: Janna Guia Ecovivências">');
   }
 }
+
