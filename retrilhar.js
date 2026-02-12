@@ -49,6 +49,8 @@ if(afiliado_ != null && afiliado_ != ''){
       $('.card-title').after('<img src="https://i.ibb.co/TJzxHSg/logocerrado.png" style="max-height: 50px;" alt="Parceiros: Cerrado Experience" title="Parceiros: Cerrado Experience">');
     } else if(afiliado_ == 'jannaguia'){
       $('.card-title').after('<img src="https://i.ibb.co/RpmtdwZC/logojanna.png" style="max-height: 30px;" alt="Parceiros: Janna Guia Ecovivências" title="Parceiros: Janna Guia Ecovivências">');
+    } else if(afiliado_ == 'andorinhas'){
+      $('.card-title').after('<img src="https://i.ibb.co/61LRcJ5/logo-andorinhas.png" style="max-height: 35px;" alt="Parceiros: Reserva Ancorinhas" title="Parceiros: Reserva Ancorinhas">');
     }
   } else if(afiliado_ == 'cecerrado'){
     $('.main-banner').prepend('<img src="https://i.ibb.co/TJzxHSg/logocerrado.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Cerrado Experience" title="Parceiros: Cerrado Experience">');
@@ -58,6 +60,9 @@ if(afiliado_ != null && afiliado_ != ''){
     $('.main-banner').prepend('<img src="https://i.ibb.co/WpDfQy3m/cerrado-balonismo.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Cerrado Balonismo" title="Parceiros: Cerrado Balonismo">');
   } else if(afiliado_ == 'jannaguia'){
     $('.main-banner').prepend('<img src="https://i.ibb.co/RpmtdwZC/logojanna.png" style="position: absolute;max-height: 30px;right: 0;top: 0;" alt="Parceiros: Janna Guia Ecovivências" title="Parceiros: Janna Guia Ecovivências">');
+  } else if(afiliado_ == 'andorinhas'){
+    $('.main-banner').prepend('<img src="https://i.ibb.co/61LRcJ5/logo-andorinhas.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Reserva Andorinhas" title="Parceiros: Reserva Andorinhas">');
   }
 }
+
 
