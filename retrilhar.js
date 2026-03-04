@@ -51,6 +51,8 @@ if(afiliado_ != null && afiliado_ != ''){
       $('.card-title').after('<img src="https://i.ibb.co/RpmtdwZC/logojanna.png" style="max-height: 30px;" alt="Parceiros: Janna Guia Ecovivências" title="Parceiros: Janna Guia Ecovivências">');
     } else if(afiliado_ == 'andorinhas'){
       $('.card-title').after('<img src="https://i.ibb.co/61LRcJ5/logo-andorinhas.png" style="max-height: 35px;" alt="Parceiros: Reserva Ancorinhas" title="Parceiros: Reserva Ancorinhas">');
+    } else if(afiliado_ == 'arpuroturismo'){
+      $('.card-title').after('<img src="https://i.ibb.co/PzWbzd9v/logoarpuro.jpg" style="max-height: 35px;" alt="Parceiros: Ar Puro Turismo" title="Parceiros: Ar Puro Turismo">');
     }
   } else if(afiliado_ == 'cecerrado'){
     $('.main-banner').prepend('<img src="https://i.ibb.co/TJzxHSg/logocerrado.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Cerrado Experience" title="Parceiros: Cerrado Experience">');
@@ -62,7 +64,10 @@ if(afiliado_ != null && afiliado_ != ''){
     $('.main-banner').prepend('<img src="https://i.ibb.co/RpmtdwZC/logojanna.png" style="position: absolute;max-height: 30px;right: 0;top: 0;" alt="Parceiros: Janna Guia Ecovivências" title="Parceiros: Janna Guia Ecovivências">');
   } else if(afiliado_ == 'andorinhas'){
     $('.main-banner').prepend('<img src="https://i.ibb.co/61LRcJ5/logo-andorinhas.png" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Reserva Andorinhas" title="Parceiros: Reserva Andorinhas">');
+  } else if(afiliado_ == 'arpuroturismo'){
+    $('.main-banner').prepend('<img src="https://i.ibb.co/PzWbzd9v/logoarpuro.jpg" style="position: absolute;max-height: 50px;right: 0;top: 0;" alt="Parceiros: Ar Puro Turismo" title="Parceiros: Ar Puro Turismo">');
   }
 }
+
 
 
