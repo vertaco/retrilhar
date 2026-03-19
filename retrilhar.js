@@ -1,6 +1,6 @@
 if(location.href.split('/')[3]=='carrinho'){fbq('track','Purchase',{"value":Number($('span:contains("Total (RS)")').next().text().replace(/[^0-9\.-]+/g,''))/100,"currency":'BRL'})}
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-gtag('js',new Date());gtag('config','AW-1001844227');$(function(){$('#formReservaNova').on('submit',function(e){gtag('event','conversion',{'send_to':'AW-1001844227/_ne1CIWJxYcYEIPc290D'})});$('<h3>Escolha sua próxima aventura</h3>').appendTo($('.sec-heading:eq(0)'));$('<h3>Roteiros exclusivos</h3>').appendTo($('.sec-heading:eq(1)'));var auxEmb='.embed-responsive-';$(auxEmb+'1by1').parent().appendTo($('.make-me-sticky')).css('padding','15px');$(auxEmb+'1by1').addClass(auxEmb+'16by9').removeClass(auxEmb+'1by1')})
+gtag('js',new Date());gtag('config','AW-1001844227');$(function(){$('#formReservaNova').on('submit',function(e){gtag('event','conversion',{'send_to':'AW-1001844227/_ne1CIWJxYcYEIPc290D'})});$('<h3>Próximas saídas em Brasília, Goiás e região</h3>').appendTo($('.sec-heading:eq(0)'));$('<h3>Roteiros exclusivos</h3>').appendTo($('.sec-heading:eq(1)'));var auxEmb='.embed-responsive-';$(auxEmb+'1by1').parent().appendTo($('.make-me-sticky')).css('padding','15px');$(auxEmb+'1by1').addClass(auxEmb+'16by9').removeClass(auxEmb+'1by1')})
 gtag('config','G-0B3G9DSKJ6');
 $(function(){
 $('#formReservaNova').addClass('was-validated');
@@ -37,6 +37,15 @@ if(afiliado_ == null){
     var expires = "expires=" + data.toUTCString(); // Formata a data de expiração
     document.cookie = 'afiliado='+afiliado_+'; '+expires+'; path=/;';
   }
+}
+if(!location.pathname.startsWith('/reserva/')){
+ $('.main-banner')
+ .css('justify-content','flex-end')
+ .css('padding-bottom','0')
+ .attr('data-overlay','3')
+ .append('<div class="container">'
+ +($('.main-banner').children().length == 0?'<div class="col-md-4 col-sm-4"><div class="caption text-center cl-white"><h3 style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);font-size: 40px;line-height: 35px;">As melhores experiências de Aventura com Segurança.</h3></div></div>':'')
+ +'<div class="row" style="justify-content: flex-end;"><img data-overlay="1" src="https://i.ibb.co/9F3fgMf/tripadwhite2025.png" style="max-width: 130px;" alt="Prémio Travellers Choice de 2025" title="Prémio Travellers Choice de 2025"></div></div>');
 }
 if(afiliado_ != null && afiliado_ != ''){
   if(location.pathname.startsWith('/reserva/')){
