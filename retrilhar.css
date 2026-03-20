@@ -10,9 +10,9 @@ div.block-wrap.mt-4{text-align: justify;margin-top: 0.5rem!important;padding: 0 
 .sec-heading p, .sec-heading h2{
 	display:none;
 }
-.sec-heading{margin: 10px;}
+.sec-heading{margin: 15px 10px 10px;}
 #main-wrapper > div.container > section.gray > div > div.card{margin-top:10px;}
-
+.tour-time{color:#2d3954;}
 .nav-brand{padding: 5px 15px 0;}
 .nav-menu > li > a {padding: 30px 12px 20px;}
 
