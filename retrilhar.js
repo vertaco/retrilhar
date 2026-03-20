@@ -46,6 +46,7 @@ if(!location.pathname.startsWith('/reserva/')){
  .append('<div class="container">'
  +($('.main-banner').children().length == 0?'<div class="col-md-4 col-sm-4"><div class="caption text-center cl-white"><h3 style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);font-size: 40px;line-height: 35px;">As melhores experiências de Aventura com Segurança.</h3></div></div>':'')
  +'<div class="row" style="justify-content: flex-end;"><img data-overlay="1" src="https://i.ibb.co/9F3fgMf/tripadwhite2025.png" style="max-width: 130px;" alt="Prémio Travellers Choice de 2025" title="Prémio Travellers Choice de 2025"></div></div>');
+ $("small:contains('por pessoa')").replaceWith('<div class="d-grid mt-auto"><a class="btn btn-primary btn-sm rounded-pill shadow-sm d-flex align-items-center justify-content-center text-uppercase fw-bold" role="button" onclick="$(this).attr(\'href\',$(this).closest(\'.singlePlaceitem\').find(\'a:first\').attr(\'href\'))">SAIBA MAIS</a></div>');
 }
 if(afiliado_ != null && afiliado_ != ''){
   if(location.pathname.startsWith('/reserva/')){
