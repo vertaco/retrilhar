@@ -40,7 +40,7 @@ if(afiliado_ == null){
 }
 if(!location.pathname.startsWith('/reserva/')){
   if($('.main-banner').children().length == 0){
-    $("small:contains('por pessoa')").replaceWith('<div class="d-grid mt-auto"><a class="btn btn-primary btn-sm rounded-pill shadow-sm d-flex align-items-center justify-content-center text-uppercase fw-bold" role="button" onclick="$(this).attr(\'href\',$(this).closest(\'.singlePlaceitem\').find(\'a:first\').attr(\'href\'))">SAIBA MAIS</a></div>');
+    $(".singlePlaceitem small:contains('por pessoa')").replaceWith('<div class="d-grid mt-auto"><a class="btn btn-primary btn-sm rounded-pill shadow-sm d-flex align-items-center justify-content-center text-uppercase fw-bold" role="button" onclick="$(this).attr(\'href\',$(this).closest(\'.singlePlaceitem\').find(\'a:first\').attr(\'href\'))">SAIBA MAIS</a></div>');
   }
  $('.main-banner')
  .css('justify-content','flex-end')
