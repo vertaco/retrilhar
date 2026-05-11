@@ -67,3 +67,4 @@ ul{list-style: inherit;}
 .tour-simple-wrap.style-2 .tour-simple-caption{padding: 0.5rem 1rem;}
 .main-banner .caption{text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);}
 .sombra-img{filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.5));}
+.singlePlaceitem .cover{max-height: 350px !important;}
