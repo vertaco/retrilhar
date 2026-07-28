@@ -1,6 +1,29 @@
-if(location.href.split('/')[3]=='carrinho'){fbq('track','Purchase',{"value":Number($('span:contains("Total (R$)")').next().text().replace(/[^0-9-]+/g,'').replace(/(\d+)(\d{2})$/, '$1.$2')),"currency":'BRL'})}
+if(location.href.split('/')[3]=='carrinho'){
+	var idReserva = $('[id*=reserva-]:eq(0)').attr('id').split('-')[1];
+	var valorVenda = Number($('[id*=reserva-] b:contains("Sub total"):eq(0)').next().text().replace(/[^0-9-]+/g,'').replace(/(\d+)(\d{2})$/, '$1.$2'));
+	var nomeEvento = $('[id*=reserva-] li:contains("Data"):eq(0)').next().text().split('\n')[0].trim();
+	fbq('track','Purchase',{"value":valorVenda,"currency":'BRL',"content_name":nomeEvento},{"eventID": 'reserva-'+idReserva});
+	gtag('event', 'purchase', {
+      'transaction_id': idReserva,
+      'value': valorVenda,
+      'currency': 'BRL',
+      'items': [
+        {
+          'item_name': nomeEvento, // Nome do passeio
+          'quantity': 1,
+          'price': valorVenda
+        }
+      ]
+    });
+}
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-gtag('js',new Date());gtag('config','AW-1001844227');$(function(){$('#formReservaNova').on('submit',function(e){gtag('event','conversion',{'send_to':'AW-1001844227/_ne1CIWJxYcYEIPc290D'})});$('<h3>Próximas saídas em Brasília, Goiás e região</h3>').appendTo($('.sec-heading:eq(0)'));$('<h3>Roteiros exclusivos</h3>').appendTo($('.sec-heading:eq(1)'));var auxEmb='.embed-responsive-';$(auxEmb+'1by1').parent().appendTo($('.make-me-sticky')).css('padding','15px');$(auxEmb+'1by1').addClass(auxEmb+'16by9').removeClass(auxEmb+'1by1')})
+gtag('js',new Date());gtag('config','AW-1001844227');
+$(function(){
+	/*$('#formReservaNova').on('submit',function(e){gtag('event','conversion',{'send_to':'AW-1001844227/_ne1CIWJxYcYEIPc290D'})});*/
+	$('<h3>Próximas saídas em Brasília, Goiás e região</h3>').appendTo($('.sec-heading:eq(0)'));
+	$('<h3>Roteiros exclusivos</h3>').appendTo($('.sec-heading:eq(1)'));
+	var auxEmb='.embed-responsive-';$(auxEmb+'1by1').parent().appendTo($('.make-me-sticky')).css('padding','15px');
+	$(auxEmb+'1by1').addClass(auxEmb+'16by9').removeClass(auxEmb+'1by1')})
 gtag('config','G-0B3G9DSKJ6');
 $(function(){
 $('#formReservaNova').addClass('was-validated');
