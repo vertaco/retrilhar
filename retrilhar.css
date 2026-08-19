@@ -69,3 +69,10 @@ ul{list-style: inherit;}
 .sombra-img{filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.5));}
 .singlePlaceitem .cover{max-height: 350px !important;}
 .tarja-contato{padding: 0 !important;}
+footer h4.widget-title{display: none;}
+footer {padding: 0;}
+@media (max-width: 767px) {
+    .footer-widget {
+        padding: 0;
+    }
+}
