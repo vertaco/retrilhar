@@ -86,3 +86,12 @@ ul.footer-bottom-social::before {
     white-space: pre;
     margin-bottom: 5px;
 }
+@media (min-width: 992px) {
+	.modal-dialog {
+        max-width: 800px;
+        margin: 30px auto;
+    }
+	.modal-body {
+   	 padding: 1.5em;
+	}
+}
