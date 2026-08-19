@@ -80,3 +80,9 @@ footer {padding: 0;}
 section.chat-app-window {padding:0;}
 #accordionSGS{font-size: 15px;font-family: "Lato", sans-serif;}
 .block-body{font-family: "Lato", sans-serif;font-size: 15px;}
+ul.footer-bottom-social::after {
+  content: "Contatos:\a E-mail: aventura@vertaco.com.br\a WhatsApp: (61) 99128-1086 \a Brasília-DF e entorno.";
+    display:block;
+    white-space: pre;
+    margin-top: 5px;
+}
