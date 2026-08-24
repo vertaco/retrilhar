@@ -117,7 +117,7 @@ $(document).ready(function() {
         if ($campoEvento.is(':visible') && $avisoVagas.length > 0 && eventoSelecionado && $("#btn-whatsapp-espera").length === 0) {
             
             // Captura o nome da atividade no título da página (H1)
-            var nomeAtividade = $('h1').first().text().trim();
+            var nomeAtividade = $('.caption h2').text().trim();
             if(!nomeAtividade) nomeAtividade = "o evento"; // Fallback caso não encontre o H1
             
             // Captura a data selecionada no campo idEvento
