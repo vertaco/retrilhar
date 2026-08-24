@@ -9,7 +9,7 @@
   fbq('init', '731551024492811');
 fbq('track', "PageView");
 
-$(function () {
+$(document).ready(function() {
     var urlContemHabitat = window.location.pathname.indexOf('/f/habitat-aventura/') !== -1;
     var urlContemCerradoExperience = window.location.pathname.indexOf('/f/cerrado-experience/') !== -1;
     if (!urlContemHabitat && !urlContemCerradoExperience) {
