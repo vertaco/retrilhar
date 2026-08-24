@@ -19,8 +19,9 @@ div.block-wrap.mt-4{text-align: justify;margin-top: 0.5rem!important;padding: 0 
 img.img-footer{max-width: 60%;}
 footer {padding: 20px;}
 
-body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento option:checked:not([value])) > div:not(:nth-child(1)){
-    display: none!important;
+
+body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento option:checked:not([value])) > div:not(:nth-child(1)):not(#aviso-empresas-participantes) {
+    display: none !important;
 }
 .carousel-item:nth-child(1)::after{
     content: '';
