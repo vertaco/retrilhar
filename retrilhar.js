@@ -127,7 +127,7 @@ $(document).ready(function() {
             
             // Monta a mensagem combinando Nome + Data
             var telefone = "5561991281086"; 
-            var mensagemOriginal = "Olá! Vi que '" + nomeAtividade + "' na data de " + dataEvento + " está com 0 vagas. Gostaria de entrar na fila de espera.";
+            var mensagemOriginal = "Olá! Vi que *" + nomeAtividade + "* na data de *" + dataEvento + "* está com 0 vagas. Gostaria de entrar na fila de espera.";
             var mensagem = encodeURIComponent(mensagemOriginal);
             var linkWa = "https://wa.me/" + telefone + "?text=" + mensagem;
             
