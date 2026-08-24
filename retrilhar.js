@@ -107,6 +107,7 @@ $(document).ready(function() {
     function checarVagasEAdicionarLink() {
         // 1. Verifica se o campo name="idEvento" existe e está preenchido
         var $campoEvento = $('[name="idEvento"]:visible');
+		var $campoHorario = $('[name="idHorario"]:visible');
         var valorEvento = $campoEvento.val();
         var eventoSelecionado = (valorEvento !== undefined && valorEvento !== null && valorEvento.trim() !== "");
 
@@ -114,7 +115,8 @@ $(document).ready(function() {
         var $avisoVagas = $campoEvento.closest('.modal-body, form').find("*:contains('0 vagas disponíveis'):visible").last();
         
         // 3. Verifica se tem 0 vagas, se o evento foi selecionado e se o botão ainda não existe
-        if ($campoEvento.is(':visible') && $avisoVagas.length > 0 && eventoSelecionado && $("#btn-whatsapp-espera").length === 0) {
+        if ($campoEvento.is(':visible') && $avisoVagas.length > 0 && eventoSelecionado && $("#btn-whatsapp-espera").length === 0
+		   && ($campoHorario.length == 0 || $campoHorario.val() !== "")) {
             
             // Captura o nome da atividade no título da página (H1)
             var nomeAtividade = $('.caption h2').text().trim();
@@ -165,6 +167,9 @@ $(document).ready(function() {
 
     // Gatilho extra: dispara a função quando o campo do evento for alterado
     $(document).on('change', '[name="idEvento"]', function() {
+        setTimeout(checarVagasEAdicionarLink, 600);
+    });
+	$(document).on('change', '[name="idHorario"]', function() {
         setTimeout(checarVagasEAdicionarLink, 600);
     });
 });
