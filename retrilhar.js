@@ -165,7 +165,7 @@ $(document).ready(function() {
 
     // Gatilho extra: dispara a função quando o campo do evento for alterado
     $(document).on('change', '[name="idEvento"]', function() {
-        setTimeout(checarVagasEAdicionarLink, 200);
+        setTimeout(checarVagasEAdicionarLink, 1000);
     });
 });
 
