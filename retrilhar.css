@@ -95,3 +95,24 @@ ul.footer-bottom-social::before {
    	 padding: 1.5em;
 	}
 }
+.btn-fila-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366; /* Verde oficial do WhatsApp */
+    color: #ffffff !important;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-fila-whatsapp:hover {
+    background-color: #128C7E;
+    color: #ffffff;
+    text-decoration: none;
+}
