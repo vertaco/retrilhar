@@ -102,6 +102,73 @@ if(afiliado_ != null && afiliado_ != ''){
   }
 }
 
+$(document).ready(function() {
+    
+    function checarVagasEAdicionarLink() {
+        // 1. Verifica se o campo name="idEvento" existe e está preenchido
+        var $campoEvento = $('[name="idEvento"]');
+        var valorEvento = $campoEvento.val();
+        var eventoSelecionado = (valorEvento !== undefined && valorEvento !== null && valorEvento.trim() !== "");
+
+        // 2. Busca o aviso de 0 vagas
+        var $avisoVagas = $("*:contains('0 vagas disponíveis'):visible").last();
+        
+        // 3. Verifica se tem 0 vagas, se o evento foi selecionado e se o botão ainda não existe
+        if ($avisoVagas.length > 0 && eventoSelecionado && $("#btn-whatsapp-espera").length === 0) {
+            
+            // Captura o nome da atividade no título da página (H1)
+            var nomeAtividade = $('h1').first().text().trim();
+            if(!nomeAtividade) nomeAtividade = "o evento"; // Fallback caso não encontre o H1
+            
+            // Captura a data selecionada no campo idEvento
+            var dataEvento = $campoEvento.find("option:selected").text().trim();
+            
+            // Monta a mensagem combinando Nome + Data
+            var telefone = "5561991281086"; 
+            var mensagemOriginal = "Olá! Vi que '" + nomeAtividade + "' na data de " + dataEvento + " está com 0 vagas. Gostaria de entrar na fila de espera.";
+            var mensagem = encodeURIComponent(mensagemOriginal);
+            var linkWa = "https://wa.me/" + telefone + "?text=" + mensagem;
+            
+            // Cria o botão HTML
+            var $botaoZap = $("<a>", {
+                id: "btn-whatsapp-espera",
+                href: linkWa,
+                target: "_blank",
+                class: "btn-fila-whatsapp",
+                text: "Entrar na Fila de Espera"
+            });
+            
+            // Anexa o botão logo após o aviso de 0 vagas
+            $avisoVagas.parent().append($botaoZap);
+            
+            // Desabilita o botão azul de "Reservar" original
+            $("button:contains('Reservar')").prop("disabled", true).css("opacity", "0.5");
+            
+        } else if ($avisoVagas.length === 0 || !eventoSelecionado) {
+            // Remove o botão de fila de espera se houver vagas ou se o evento não estiver preenchido
+            $("#btn-whatsapp-espera").remove();
+            
+            // Só reabilita o botão "Reservar" se o aviso de 0 vagas não estiver na tela
+            if($avisoVagas.length === 0) {
+                $("button:contains('Reservar')").prop("disabled", false).css("opacity", "1");
+            }
+        }
+    }
+
+    // Usando MutationObserver para observar mudanças na tela
+    var observer = new MutationObserver(function(mutations) {
+        checarVagasEAdicionarLink();
+    });
+    
+    // Inicia o observador no corpo da página
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Gatilho extra: dispara a função quando o campo do evento for alterado
+    $(document).on('change', '[name="idEvento"]', function() {
+        setTimeout(checarVagasEAdicionarLink, 200);
+    });
+});
+
 
 
 
