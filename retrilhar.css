@@ -116,3 +116,6 @@ ul.footer-bottom-social::before {
     color: #ffffff;
     text-decoration: none;
 }
+.form-group:has(select[name="idHorario"]:invalid) ~ .form-group {
+    display: none;
+}
