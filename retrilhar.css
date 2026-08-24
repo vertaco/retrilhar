@@ -20,7 +20,7 @@ img.img-footer{max-width: 60%;}
 footer {padding: 20px;}
 
 
-body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento option:checked:not([value])) > div:not(:has(#idEvento)) {
+body > div.fade.modal.show > div > div > form > div.modal-body:has(#idEvento option:checked:not([value])) > div:not(:has(#idEvento)):not(#aviso-empresas-participantes) {
     display: none !important;
 }
 .carousel-item:nth-child(1)::after{
