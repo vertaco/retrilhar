@@ -114,7 +114,7 @@ $(document).ready(function() {
         var $avisoVagas = $("*:contains('0 vagas disponíveis'):visible").last();
         
         // 3. Verifica se tem 0 vagas, se o evento foi selecionado e se o botão ainda não existe
-        if ($avisoVagas.length > 0 && eventoSelecionado && $("#btn-whatsapp-espera").length === 0) {
+        if ($campoEvento.is(':visible') && $avisoVagas.length > 0 && eventoSelecionado && $("#btn-whatsapp-espera").length === 0) {
             
             // Captura o nome da atividade no título da página (H1)
             var nomeAtividade = $('h1').first().text().trim();
