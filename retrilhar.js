@@ -131,27 +131,27 @@ $(document).ready(function() {
             
             // Cria o botão HTML
             var $botaoZap = $("<a>", {
-                id: "btn-whatsapp-espera",
-                href: linkWa,
-                target: "_blank",
-                class: "btn-fila-whatsapp",
-                text: "Entrar na Fila de Espera"
-            });
+			    id: "btn-whatsapp-espera",
+			    href: linkWa,
+			    target: "_blank",
+			    class: "btn-fila-whatsapp",
+			    html: '<i class="fab fa-whatsapp"></i>&nbsp; Entrar na Fila de Espera'
+			});
             
             // Anexa o botão logo após o aviso de 0 vagas
-            $avisoVagas.parent().append($botaoZap);
+            $avisoVagas.append($botaoZap);
             
             // Desabilita o botão azul de "Reservar" original
-            $("button:contains('Reservar')").prop("disabled", true).css("opacity", "0.5");
+           // $("button:contains('Reservar')").prop("disabled", true).css("opacity", "0.5");
             
         } else if ($avisoVagas.length === 0 || !eventoSelecionado) {
             // Remove o botão de fila de espera se houver vagas ou se o evento não estiver preenchido
             $("#btn-whatsapp-espera").remove();
             
             // Só reabilita o botão "Reservar" se o aviso de 0 vagas não estiver na tela
-            if($avisoVagas.length === 0) {
-                $("button:contains('Reservar')").prop("disabled", false).css("opacity", "1");
-            }
+           // if($avisoVagas.length === 0) {
+            //    $("button:contains('Reservar')").prop("disabled", false).css("opacity", "1");
+           // }
         }
     }
 
