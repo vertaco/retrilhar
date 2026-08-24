@@ -185,7 +185,7 @@ $(document).ready(function() {
            // }
         }
 		if ((urlContemHabitat || urlContemCerradoExperience) && $campoEvento.is(':visible') && $('#aviso-empresas-participantes').length == 0) {
-			$campoEvento.closest('.modal-body').append('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert"><b>Produto de empresa parceira:</b> esta atividade é prestada e operada pela '+nomeEmpresa+'. A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
+			$campoEvento.closest('.modal-body').prepend('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert"><b>Produto de empresa parceira:</b> esta atividade é prestada e operada pela '+nomeEmpresa+'. A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
 		}
     }
 
