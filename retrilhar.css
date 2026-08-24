@@ -92,10 +92,10 @@ ul.footer-bottom-social::before {
         max-width: 800px;
         margin: 30px auto;
     }
-	.modal-body {
+}
+.modal-body {
    	 padding: 1.5em;
 	}
-}
 .btn-fila-whatsapp {
     display: inline-flex;
     align-items: center;
