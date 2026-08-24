@@ -141,7 +141,11 @@ $(document).ready(function() {
         var eventoSelecionado = (valorEvento !== undefined && valorEvento !== null && valorEvento.trim() !== "");
 
         // 2. Busca o aviso de 0 vagas
-        var $avisoVagas = $campoEvento.closest('.modal-body, form').find("*:contains('0 vagas disponíveis'):visible").last();
+        var $avisoVagas = $campoEvento.closest('.modal-body, form')
+    		.find('*:visible')
+    		.filter(function() {
+        		return $(this).text().trim() === '0 vagas disponíveis';
+    		}).last();
         
         // 3. Verifica se tem 0 vagas, se o evento foi selecionado e se o botão ainda não existe
         if ($campoEvento.is(':visible') && $avisoVagas.length > 0 && eventoSelecionado && $("#btn-whatsapp-espera").length === 0
