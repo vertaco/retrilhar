@@ -199,21 +199,27 @@ $(document).ready(function() {
 	    }
     }
 
-    // Usando MutationObserver para observar mudanças na tela
-    var observer = new MutationObserver(function(mutations) {
-        checarVagasEAdicionarLink();
-    });
-    
-    // Inicia o observador no corpo da página
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    // Gatilho extra: dispara a função quando o campo do evento for alterado
-    $(document).on('change', '[name="idEvento"]', function() {
-        setTimeout(checarVagasEAdicionarLink, 600);
-    });
-	$(document).on('change', '[name="idHorario"]', function() {
-        setTimeout(checarVagasEAdicionarLink, 600);
-    });
+    // --- OTIMIZAÇÃO: Controle de chamadas (Debounce) ---
+	// Evita que a função rode dezenas de vezes por segundo
+	var timer;
+	function checarComDebounce() {
+	    clearTimeout(timer);
+	    timer = setTimeout(checarVagasEAdicionarLink, 200); // Aguarda 200ms após a última mudança para agir
+	}
+	
+	// Usando MutationObserver APENAS no contexto necessário (ex: o modal ou formulário)
+	// Se não souber o ID do modal, ainda podemos usar o body, mas o debounce salvará a performance.
+	var observer = new MutationObserver(function(mutations) {
+	    checarComDebounce();
+	});
+	
+	// Inicia o observador
+	observer.observe(document.body, { childList: true, subtree: true });
+	
+	// Gatilhos extras nos campos (já com setTimeout no seu código original, mas centralizados aqui)
+	$(document).on('change', '[name="idEvento"], [name="idHorario"]', function() {
+	    checarComDebounce();
+	});
 });
 
 
