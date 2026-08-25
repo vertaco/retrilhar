@@ -103,7 +103,10 @@ if(afiliado_ != null && afiliado_ != ''){
 }
 
 $(document).ready(function() {
-    var urlContemHabitat = window.location.pathname.indexOf('/f/habitat-aventura/') !== -1;
+    if(window.location.pathname.indexOf('/f/') === -1 && window.location.pathname.indexOf('/p/') === -1){
+		return;
+	}
+	var urlContemHabitat = window.location.pathname.indexOf('/f/habitat-aventura/') !== -1;
     var urlContemCerradoExperience = window.location.pathname.indexOf('/f/cerrado-experience/') !== -1;
 	var nomeEmpresa;
     var $blockBody = $('.block-body').first();
