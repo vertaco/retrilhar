@@ -66,7 +66,7 @@ ul{list-style: inherit;}
 }
 .ts-price{font-weight:bold;color: #054a93;}
 .tour-simple-wrap.style-2 .tour-simple-caption{padding: 0.5rem 1rem;}
-.main-banner .caption{text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);}
+.main-banner .caption{text-shadow: 2px 2px 5px rgba(0,0,0,0.8);}
 .sombra-img{filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.5));}
 .singlePlaceitem .cover{max-height: 350px !important;}
 .tarja-contato{padding: 0 !important;}
@@ -119,4 +119,36 @@ ul.footer-bottom-social::before {
 }
 .form-group:has(select[name="idHorario"]:invalid) ~ .form-group {
     display: none;
+}
+//melhorias
+.side-booking-header{
+    background-color: #6c757d;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+.side-booking-body h4 {
+    display: none;
+}
+
+.title-banner-value{display:none;}
+
+.preReservaBtn:not([data-label="RESERVAR"]) button:before {
+    content: 'Reservar: ';
+}
+.side-booking-body h4{
+    display: none;
+}
+.preReservaBtn button{
+   // text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+.preReservaBtn button{ 
+    color: #212529!important;
+    background-color: #ffc107!important;
+    border-color: #ffc107!important;
+    font-weight: 400;
+}
+.preReservaBtn button:hover {
+    color: #212529!important;
+    background-color: #e0a800!important;
+    border-color: #d39e00!important;
 }
