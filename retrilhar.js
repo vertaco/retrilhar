@@ -136,61 +136,67 @@ $(document).ready(function() {
     function checarVagasEAdicionarLink() {
        	// 1. Verifica se o campo name="idEvento" existe e está preenchido
         var $campoEvento = $('[name="idEvento"]:visible');
+		// OTIMIZAÇÃO 1: Early Return. 
+	    // Se o campo evento não está na tela, não gasta processamento executando o resto da função.
+	    if ($campoEvento.length === 0) {
+	        return; 
+	    }
 		var $campoHorario = $('[name="idHorario"]:visible');
         var valorEvento = $campoEvento.val();
         var eventoSelecionado = (valorEvento !== undefined && valorEvento !== null && valorEvento.trim() !== "");
+		var $avisoVagas = $();
 
-        // 2. Busca o aviso de 0 vagas
-        var $avisoVagas = $campoEvento.closest('.modal-body, form')
-    		.find('*:visible')
-    		.filter(function() {
-        		return $(this).text().trim() === '0 vagas disponíveis';
-    		}).last();
-        
+	    // OTIMIZAÇÃO 2: Só faz a busca pesada de texto SE o evento estiver selecionado
+	    if (eventoSelecionado) {
+	        $avisoVagas = $campoEvento.closest('.modal-body')
+	            // OTIMIZAÇÃO 3: Removido o *:visible. Especifique as tags prováveis onde o texto mora.
+	            // Isso reduz a busca de centenas de elementos para apenas alguns.
+	            .find('div:visible')
+	            .filter(function() {
+	                return $(this).text().trim() === '0 vagas disponíveis';
+	            }).last();
+	    }
+                
         // 3. Verifica se tem 0 vagas, se o evento foi selecionado e se o botão ainda não existe
-        if ($campoEvento.is(':visible') && $avisoVagas.length > 0 && eventoSelecionado && $("#btn-whatsapp-espera").length === 0
-		   && ($campoHorario.length == 0 || $campoHorario.val() !== "")) {
-            
-            // Captura o nome da atividade no título da página (H1)
-            var nomeAtividade = $('.caption h2').text().trim();
-            if(!nomeAtividade) nomeAtividade = "o evento"; // Fallback caso não encontre o H1
-            
-            // Captura a data selecionada no campo idEvento
-            var dataEvento = $campoEvento.find("option:selected").text().trim();
-            
-            // Monta a mensagem combinando Nome + Data
-            var telefone = "5561991281086"; 
-            var mensagemOriginal = "Olá! Vi que *" + nomeAtividade + "* na data de *" + dataEvento + "* está com 0 vagas. Gostaria de entrar na fila de espera.";
-            var mensagem = encodeURIComponent(mensagemOriginal);
-            var linkWa = "https://wa.me/" + telefone + "?text=" + mensagem;
-            
-            // Cria o botão HTML
-            var $botaoZap = $("<a>", {
-			    id: "btn-whatsapp-espera",
-			    href: linkWa,
-			    target: "_blank",
-			    class: "btn-fila-whatsapp",
-			    html: '<i class="fab fa-whatsapp"></i>&nbsp; Entrar na Fila de Espera'
-			});
-            
-            // Anexa o botão logo após o aviso de 0 vagas
-            $avisoVagas.append($botaoZap);
-            
-            // Desabilita o botão azul de "Reservar" original
-           // $("button:contains('Reservar')").prop("disabled", true).css("opacity", "0.5");
-            
-        } else if ($avisoVagas.length === 0 || !eventoSelecionado) {
-            // Remove o botão de fila de espera se houver vagas ou se o evento não estiver preenchido
-            $("#btn-whatsapp-espera").remove();
-            
-            // Só reabilita o botão "Reservar" se o aviso de 0 vagas não estiver na tela
-           // if($avisoVagas.length === 0) {
-            //    $("button:contains('Reservar')").prop("disabled", false).css("opacity", "1");
-           // }
-        }
-		if ((urlContemHabitat || urlContemCerradoExperience) && $campoEvento.is(':visible') && $('#aviso-empresas-participantes').length == 0) {
-			$campoEvento.closest('.modal-body').prepend('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert"><b>Produto de empresa parceira:</b> esta atividade é prestada e operada pela '+nomeEmpresa+'. A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
-		}
+	    if ($avisoVagas.length > 0 && $("#btn-whatsapp-espera").length === 0 && ($campoHorario.length === 0 || $campoHorario.val() !== "")) {
+	        
+	        // Captura o nome da atividade no título da página (H1) ou usa um fallback
+	        var nomeAtividade = $('.caption h2').text().trim() || "o evento";
+	        
+	        // Captura a data selecionada no campo idEvento
+	        var dataEvento = $campoEvento.find("option:selected").text().trim();
+	        
+	        // Monta a mensagem combinando Nome + Data
+	        var telefone = "5561991281086"; 
+	        var mensagem = encodeURIComponent("Olá! Vi que *" + nomeAtividade + "* na data de *" + dataEvento + "* está com 0 vagas. Gostaria de entrar na fila de espera.");
+	        var linkWa = "https://wa.me/" + telefone + "?text=" + mensagem;
+	        
+	        // Cria o botão HTML
+	        var $botaoZap = $("<a>", {
+	            id: "btn-whatsapp-espera",
+	            href: linkWa,
+	            target: "_blank",
+	            class: "btn-fila-whatsapp",
+	            html: '<i class="fab fa-whatsapp"></i>&nbsp; Entrar na Fila de Espera'
+	        });
+	        
+	        // Anexa o botão logo após o aviso de 0 vagas
+	        $avisoVagas.append($botaoZap);
+	        
+	    } else if ($avisoVagas.length === 0 || !eventoSelecionado) {
+	        // Remove o botão de fila de espera se houver vagas ou se o evento não estiver preenchido
+	        $("#btn-whatsapp-espera").remove();
+	    }
+	
+	    // OTIMIZAÇÃO 4: Prevenção de Crash por variáveis indefinidas (ReferenceError)
+	    // O typeof garante que, se a variável não existir na página atual, o script não quebre.
+	    var isHabitat = (typeof urlContemHabitat !== 'undefined' && urlContemHabitat);
+	    var isCerrado = (typeof urlContemCerradoExperience !== 'undefined' && urlContemCerradoExperience);
+	    var nomeDaEmp = (typeof nomeEmpresa !== 'undefined') ? nomeEmpresa : 'nossa empresa parceira';
+	
+	    if ((isHabitat || isCerrado) && $('#aviso-empresas-participantes').length === 0) {
+	        $campoEvento.closest('.modal-body').prepend('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert"><b>Produto de empresa parceira:</b> esta atividade é prestada e operada pela '+ nomeDaEmp +'. A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
+	    }
     }
 
     // Usando MutationObserver para observar mudanças na tela
