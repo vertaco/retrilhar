@@ -151,9 +151,9 @@ $(document).ready(function() {
 	        $avisoVagas = $campoEvento.closest('.modal-body')
 	            // OTIMIZAÇÃO 3: Removido o *:visible. Especifique as tags prováveis onde o texto mora.
 	            // Isso reduz a busca de centenas de elementos para apenas alguns.
-	            .find('div:visible')
+	            .find('div')
 	            .filter(function() {
-	                return $(this).text().trim() === '0 vagas disponíveis';
+	                return $(this).text().trim().startsWith('0 vagas disponíveis');
 	            }).last();
 	    }
                 
