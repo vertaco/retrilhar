@@ -207,7 +207,7 @@ $(document).ready(function() {
 	var timer;
 	function checarComDebounce() {
 	    clearTimeout(timer);
-	    timer = setTimeout(checarVagasEAdicionarLink, 200); // Aguarda 200ms após a última mudança para agir
+	    timer = setTimeout(checarVagasEAdicionarLink, 400); // Aguarda 400ms após a última mudança para agir
 	}
 	
 	// Usando MutationObserver APENAS no contexto necessário (ex: o modal ou formulário)
