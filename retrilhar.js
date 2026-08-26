@@ -23,21 +23,91 @@ $(function(){
 	$('<h3>Próximas saídas em Brasília, Goiás e região</h3>').appendTo($('.sec-heading:eq(0)'));
 	$('<h3>Roteiros exclusivos</h3>').appendTo($('.sec-heading:eq(1)'));
 	var auxEmb='.embed-responsive-';$(auxEmb+'1by1').parent().appendTo($('.make-me-sticky')).css('padding','15px');
-	$(auxEmb+'1by1').addClass(auxEmb+'16by9').removeClass(auxEmb+'1by1')})
+	$(auxEmb+'1by1').addClass(auxEmb+'16by9').removeClass(auxEmb+'1by1');
+	// Captura o link da Política de Privacidade já existente no rodapé do site
+	
+	const urlPolitica = $("a:contains('Política de privacidade')").attr("href") || "/politica-de-privacidade";
+	if(location.pathname.startsWith('/pre-reserva')){
+		// Localiza o elemento mais profundo que contém o texto e aplica a substituição
+		$("*:contains('Solicitamos essas informações para casos de emergência')").last().html(
+		    'Seus dados de saúde serão usados somente para avaliar sua participação, emitir o seguro e auxiliar em emergências, com acesso restrito. Consulte a <a href="' + urlPolitica + '" target="_blank" style="text-decoration: underline;">Política de Privacidade</a>.'
+		);
+		$("label:contains('Utiliza medicamento controlado de uso contínuo?')").last().html(function(_, html) {
+		    return html.replace(
+		        'Utiliza medicamento controlado de uso contínuo?', 
+		        'Usa medicamento contínuo ou que poderá precisar durante a atividade?'
+		    );
+		});
+		$("label:contains('Possui algum problema de saúde que deva ser ressaltado?')").last().html(function(_, html) {
+		    return html.replace(
+		        'Possui algum problema de saúde que deva ser ressaltado?', 
+		        'Possui alguma condição de saúde ou lesão que possa afetar sua participação?'
+		    );
+		});
+		$("label:contains('Alguma incapacidade física ou mental?')").last().html(function(_, html) {
+		    return html.replace(
+		        'Alguma incapacidade física ou mental?', 
+		        'Precisa de apoio ou adaptação para participar da atividade?'
+		    );
+		});
+		$("label:contains('Qual(is) alergia(s) possui?')").last().html(function(_, html) {
+		    return html.replace(
+		        'Qual(is) alergia(s) possui?', 
+		        'Descreva a alergia e os cuidados necessários:'
+		    );
+		});
+		$("label:contains('Qual(is) restrição(ões) alimentar(es) possui?')").last().html(function(_, html) {
+		    return html.replace(
+		        'Qual(is) restrição(ões) alimentar(es) possui?', 
+		        'Informe a restrição alimentar:'
+		    );
+		});
+		$("label:contains('Quais medicamento controlado de uso contínuo utiliza?')").last().html(function(_, html) {
+		    return html.replace(
+		        'Quais medicamento controlado de uso contínuo utiliza?', 
+		        'Informe o medicamento e os cuidados necessários:'
+		    );
+		});
+		$("label:contains('Qual(is) problema(s) de saúde possui?')").last().html(function(_, html) {
+		    return html.replace(
+		        'Qual(is) problema(s) de saúde possui?', 
+		        'Descreva a condição e os cuidados necessários:'
+		    );
+		});
+		$("label:contains('Qual incapacidade física ou mental possui?')").last().html(function(_, html) {
+		    return html.replace(
+		        'Qual incapacidade física ou mental possui?', 
+		        'Informe o apoio ou adaptação necessária:'
+		    );
+		});
+		$("label:contains('Autoriza o envio de novidades e promoções por e-mail')").last().html(function(_, html) {
+		    return html.replace(
+		        'Autoriza o envio de novidades e promoções por e-mail', 
+		        'Desejo receber novidades e promoções da Vertaco.'
+		    );
+		});
+		$("button:contains('Reservar')").last().html(function(_, html) { 
+		    return html.replace(
+		        'Reservar',  
+		        'Enviar solicitação de reserva' 
+		    );
+		});
+	}
+})
 gtag('config','G-0B3G9DSKJ6');
 $(function(){
-$('#formReservaNova').addClass('was-validated');
-$('[required]').prev('label').append('<span style="color:red;"> *</span>');
-$(':input[required]').closest('.input-group, .phone').prev('label').append('<span style="color:red;"> *</span>');
-$('#extra_re_peso').attr('min','20').val('');
-$('#extra_re_altura').attr('min','0.1').val('');
-if($('#endereco'))$('#endereco').parent().parent().parent().remove();
-if($('#email').is(':disabled') && $('#nome').val()){
-  $('#nome').attr('readonly', true);
-  if($('input[name="participante[cpf]"]').val()){
-    $('input[name="participante[cpf]"]').attr('readonly', true);
-  }
-}
+	$('#formReservaNova').addClass('was-validated');
+	$('[required]').prev('label').append('<span style="color:red;"> *</span>');
+	$(':input[required]').closest('.input-group, .phone').prev('label').append('<span style="color:red;"> *</span>');
+	$('#extra_re_peso').attr('min','20').val('');
+	$('#extra_re_altura').attr('min','0.1').val('');
+	if($('#endereco'))$('#endereco').parent().parent().parent().remove();
+	if($('#email').is(':disabled') && $('#nome').val()){
+	  $('#nome').attr('readonly', true);
+	  if($('input[name="participante[cpf]"]').val()){
+	    $('input[name="participante[cpf]"]').attr('readonly', true);
+	  }
+	}
 });
 function getCookie(nome) {
     var nomeIgual = nome + "=";
