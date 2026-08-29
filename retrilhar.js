@@ -171,11 +171,36 @@ if(afiliado_ != null && afiliado_ != ''){
     $('.main-banner').prepend('<img src="https://i.ibb.co/PzWbzd9v/logoarpuro.jpg" style="position: absolute;max-height: 60px;right: 0;top: 0;" alt="Parceiros: Ar Puro Turismo" title="Parceiros: Ar Puro Turismo">');
   }
 }
-
+function adicionarProximasDatas(){
+	if (window.innerWidth <= 768) {
+		let datas = [];
+	    // Busca os elementos que contêm o texto das próximas datas
+	    $('.preReservaBtn:not([data-label="RESERVAR"])').each(function() {
+	        let textoData = $(this).text().trim();
+	        if (textoData) {
+	            datas.push(textoData);
+	        }
+	    });
+	    // Remove duplicatas caso a mesma data apareça mais de uma vez
+	    datas = [...new Set(datas)];
+	    // Constrói o HTML a ser inserido
+	    if (datas.length > 0) {
+	        let htmlDatas = '<div id="lista-proximas-datas" style="padding: 5px; ">';
+	        htmlDatas += '<h5>Próximas datas</h5>';
+	        datas.forEach(function(data) {
+	            htmlDatas += '<b>' + data + '</b><br>';
+	        });
+	        htmlDatas += '</div>';
+	        // Insere o HTML logo após o carrossel
+	        $('#carouselExampleIndicators').after(htmlDatas);
+	    }
+	} 
+}
 $(document).ready(function() {
     if(window.location.pathname.indexOf('/f/') === -1 && window.location.pathname.indexOf('/p/') === -1){
 		return;
 	}
+	adicionarProximasDatas();
 	var urlContemHabitat = window.location.pathname.indexOf('/f/habitat-aventura/') !== -1;
     var urlContemCerradoExperience = window.location.pathname.indexOf('/f/cerrado-experience/') !== -1;
 	var nomeEmpresa;
