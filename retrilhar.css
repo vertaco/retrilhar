@@ -62,7 +62,8 @@ ul{list-style: inherit;}
 .a-whatsapp{bottom:60px;right:40px;left:initial;}
 .textobanner{text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);font-size: 30px;line-height: 30px;}
 @media (min-width: 1024px) {
-.textobanner{text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);font-size: 40px;line-height: 35px;}
+	.textobanner{text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);font-size: 40px;line-height: 35px;}
+	.title-banner-value{display:none;}
 }
 .ts-price{font-weight:bold;color: #054a93;}
 .tour-simple-wrap.style-2 .tour-simple-caption{padding: 0.5rem 1rem;}
@@ -129,8 +130,6 @@ ul.footer-bottom-social::before {
 .side-booking-body h4 {
     display: none;
 }
-
-.title-banner-value{display:none;}
 
 .preReservaBtn:not([data-label="RESERVAR"]) button:before {
     content: 'Reservar: ';
