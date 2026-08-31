@@ -185,12 +185,12 @@ function adicionarProximasDatas(){
 	    datas = [...new Set(datas)];
 	    // Constrói o HTML a ser inserido
 	    if (datas.length > 0) {
-	        let htmlDatas = '<div id="lista-proximas-datas" style="padding: 5px; ">';
-	        htmlDatas += '<h5>Próximas datas</h5>';
+	        let htmlDatas = '<div id="lista-proximas-datas" style="padding: 5px;" onclick="$(\'.fixed-bottom > [data-label=\\\'RESERVAR\\\'] > button\').click();">';
+	        htmlDatas += '<h5>Próximas datas</h5><u><b>';
 	        datas.forEach(function(data) {
-	            htmlDatas += '<b>' + data + '</b><br>';
+	            htmlDatas += data + '<br>';
 	        });
-	        htmlDatas += '</div>';
+	        htmlDatas += '</b></u></div>';
 	        // Insere o HTML logo após o carrossel
 			if($('#carouselExampleIndicators').length > 0){
 				$('#carouselExampleIndicators').after(htmlDatas);
