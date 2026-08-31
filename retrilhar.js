@@ -192,7 +192,11 @@ function adicionarProximasDatas(){
 	        });
 	        htmlDatas += '</div>';
 	        // Insere o HTML logo após o carrossel
-	        $('#carouselExampleIndicators').after(htmlDatas);
+			if($('#carouselExampleIndicators').length > 0){
+				$('#carouselExampleIndicators').after(htmlDatas);
+			} else {
+				$('#galeria + p').after(htmlDatas);	
+			}
 	    }
 	} 
 }
