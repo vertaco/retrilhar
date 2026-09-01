@@ -237,7 +237,7 @@ function adicionarBadgesCards(){
 	// Transporte incluso
 	$.each(["Excursão Terra Ronca-GO [10 a 12/10]","Excursão Mambaí-GO [05 a 07/09]"], function(index, atividade) {
         // Encontra a imagem da atividade baseada no texto alternativo ou título
-        $('.cover img[alt="' + atividade + '"], .cover img[title="' + atividade + '"]').each(function() {
+        $('img[alt="' + atividade + '"], img[title="' + atividade + '"]').each(function() {
             const $linkPai = $(this).parent();
             // Força o comportamento relativo no elemento pai
             $linkPai.addClass('position-relative d-block');
