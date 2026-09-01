@@ -200,7 +200,56 @@ function adicionarProximasDatas(){
 	    }
 	} 
 }
+function adicionarBadgesCards(){
+	// Transporte opcional
+	$.each([
+        "Rapel Cachoeira do Bisnau",
+        "Canionismo Cachoeira do Dragão",
+        "Rapel Chapada Indaiá",
+        "Rapel Dolina dos Maracanãs",
+        "Canionismo em Pirenópolis-GO",
+        "Cachoeira do Dragão"
+    ], function(index, atividade) {
+        // Encontra a imagem da atividade baseada no texto alternativo ou título
+        $('img[alt="' + atividade + '"], img[title="' + atividade + '"]').each(function() {
+            const $linkPai = $(this).parent();
+            // Força o comportamento relativo no elemento pai
+            $linkPai.addClass('position-relative d-block');
+            // Injeta o badge apenas se ele ainda não existir no elemento (evita duplicidade)
+            if ($linkPai.html().indexOf('Transporte opcional') === -1) {
+                $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; right: 10px; z-index: 10; background-color: #ffc107; color: #212529;">Transporte opcional</span>');
+            }
+        });
+    });
+	// Almoço incluso
+	$.each(["Cânion Chapada Imperial"], function(index, atividade) {
+        // Encontra a imagem da atividade baseada no texto alternativo ou título
+        $('img[alt="' + atividade + '"], img[title="' + atividade + '"]').each(function() {
+            const $linkPai = $(this).parent();
+            // Força o comportamento relativo no elemento pai
+            $linkPai.addClass('position-relative d-block');
+            // Injeta o badge apenas se ele ainda não existir no elemento (evita duplicidade)
+            if ($linkPai.html().indexOf('Almoço incluso') === -1) {
+                $linkPai.append('<span class="badge badge-success" style="position: absolute; top: 10px; right: 10px; z-index: 10; color: #fff; background-color: #28a745;">Almoço incluso</span>');
+            }
+        });
+    });
+	// Transporte incluso
+	$.each(["Excursão Terra Ronca-GO [10 a 12/10]","Excursão Mambaí-GO [05 a 07/09]"], function(index, atividade) {
+        // Encontra a imagem da atividade baseada no texto alternativo ou título
+        $('.cover img[alt="' + atividade + '"], .cover img[title="' + atividade + '"]').each(function() {
+            const $linkPai = $(this).parent();
+            // Força o comportamento relativo no elemento pai
+            $linkPai.addClass('position-relative d-block');
+            // Injeta o badge apenas se ele ainda não existir no elemento (evita duplicidade)
+            if ($linkPai.html().indexOf('Transporte incluso') === -1) {
+                $linkPai.append('<span class="badge badge-success" style="position: absolute; top: 10px; right: 10px; z-index: 10; color: #fff; background-color: #28a745;">Transporte incluso</span>');
+            }
+        });
+    });
+}
 $(document).ready(function() {
+	adicionarBadgesCards();
     if(window.location.pathname.indexOf('/f/') === -1 && window.location.pathname.indexOf('/p/') === -1){
 		return;
 	}
