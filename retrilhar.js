@@ -208,7 +208,8 @@ function adicionarBadgesCards(){
         "Rapel Chapada Indaiá",
         "Rapel Dolina dos Maracanãs",
         "Canionismo em Pirenópolis-GO",
-        "Cachoeira do Dragão"
+        "Cachoeira do Dragão",
+		"Feriado do Dia da Consciência Negra 2026 - Mambaí"
     ], function(index, atividade) {
         // Encontra a imagem da atividade baseada no texto alternativo ou título
         $('.cover[alt="' + atividade + '"], .cover[title="' + atividade + '"]').each(function() {
