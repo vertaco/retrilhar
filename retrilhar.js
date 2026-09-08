@@ -255,10 +255,11 @@ $(document).ready(function() {
 	}
 	adicionarProximasDatas();
 	var urlContemHabitat = window.location.pathname.indexOf('/f/habitat-aventura/') !== -1;
+	var urlContemEcologica = window.location.pathname.indexOf('/f/ecologica/') !== -1;
     var urlContemCerradoExperience = window.location.pathname.indexOf('/f/cerrado-experience/') !== -1;
 	var nomeEmpresa;
     var $blockBody = $('.block-body').first();
-	if ((urlContemHabitat || urlContemCerradoExperience) && !(!$blockBody.length || $('#empresas-participantes').length)) {
+	if ((urlContemHabitat || urlContemCerradoExperience || urlContemEcologica) && !(!$blockBody.length || $('#empresas-participantes').length)) {
         var empresaOperadoraHtml;
 		var empresaOperadoraHtmlReserva;
 	    if(urlContemHabitat){
@@ -267,6 +268,9 @@ $(document).ready(function() {
 	    } else if(urlContemCerradoExperience){
 	     	nomeEmpresa = 'Cerrado Experience';
 			empresaOperadoraHtml ='<p class="mb-1"><b>Cerrado Experience</b></p><p class="text-muted mb-2">CNPJ e Cadastur: 43.255.923/0001-05</p>';
+		} else if(urlContemEcologica){
+	     	nomeEmpresa = 'Ecologica Turismo de Natureza';
+			empresaOperadoraHtml ='<p class="mb-1"><b>Ecologica Turismo de Natureza</b></p><p class="text-muted mb-2">CNPJ e Cadastur: 44.591.078/0001-01</p>';	
 	    }
 	    var empresasParticipantesHtml = `<div id="empresas-participantes" class="card border-primary mb-4 mt-2">
 	            <div class="card-header text-white" style="border: 0;background-color: #0977ec;"><b>🏢 Empresas participantes</b></div>
