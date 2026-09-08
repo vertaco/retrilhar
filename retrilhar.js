@@ -346,7 +346,7 @@ $(document).ready(function() {
 	    // OTIMIZAÇÃO 4: Prevenção de Crash por variáveis indefinidas (ReferenceError)
 	    // O typeof garante que, se a variável não existir na página atual, o script não quebre.
 	    var isParceiro = (typeof urlContemHabitat !== 'undefined' && urlContemHabitat)
-	    	|| (typeof urlContemCerradoExperience !== 'undefined' && urlContemCerradoExperience);
+	    	|| (typeof urlContemCerradoExperience !== 'undefined' && urlContemCerradoExperience)
 			|| (typeof urlContemEcologica !== 'undefined' && urlContemEcologica);
 	    var nomeDaEmp = (typeof nomeEmpresa !== 'undefined') ? nomeEmpresa : 'nossa empresa parceira';
 	
