@@ -345,11 +345,12 @@ $(document).ready(function() {
 	
 	    // OTIMIZAÇÃO 4: Prevenção de Crash por variáveis indefinidas (ReferenceError)
 	    // O typeof garante que, se a variável não existir na página atual, o script não quebre.
-	    var isHabitat = (typeof urlContemHabitat !== 'undefined' && urlContemHabitat);
-	    var isCerrado = (typeof urlContemCerradoExperience !== 'undefined' && urlContemCerradoExperience);
+	    var isParceiro = (typeof urlContemHabitat !== 'undefined' && urlContemHabitat)
+	    	|| (typeof urlContemCerradoExperience !== 'undefined' && urlContemCerradoExperience);
+			|| (typeof urlContemEcologica !== 'undefined' && urlContemEcologica);
 	    var nomeDaEmp = (typeof nomeEmpresa !== 'undefined') ? nomeEmpresa : 'nossa empresa parceira';
 	
-	    if ((isHabitat || isCerrado) && $('#aviso-empresas-participantes').length === 0) {
+	    if (isParceiro && $('#aviso-empresas-participantes').length === 0) {
 	        $campoEvento.closest('.modal-body').prepend('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert"><b>Atividade de empresa parceira:</b> esta atividade é prestada e operada pela '+ nomeDaEmp +'. A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
 	    }
     }
