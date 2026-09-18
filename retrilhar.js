@@ -242,27 +242,41 @@ function adicionarBadgesCards(){
         "Cachoeira do Dragão",
 		"Feriado do Dia da Consciência Negra 2026 - Mambaí"
     ], function(index, atividade) {
-        // Encontra a imagem da atividade baseada no texto alternativo ou título
         $('.cover[alt="' + atividade + '"], .cover[title="' + atividade + '"]').each(function() {
             const $linkPai = $(this).parent();
-            // Força o comportamento relativo no elemento pai
             $linkPai.addClass('position-relative d-block');
-            // Injeta o badge apenas se ele ainda não existir no elemento (evita duplicidade)
             if ($linkPai.html().indexOf('Transporte opcional') === -1) {
                 $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; right: 10px; z-index: 10; background-color: #ffc107; color: #212529;">Transporte opcional</span>');
             }
         });
     });
-	// Almoço incluso
-	$.each(["Cânion Chapada Imperial"], function(index, atividade) {
-        // Encontra a imagem da atividade baseada no texto alternativo ou título
+	// Crianças
+	$.each(["Rapel Cachoeira do Tororó"], function(index, atividade) {
         $('.cover[alt="' + atividade + '"], .cover[title="' + atividade + '"]').each(function() {
             const $linkPai = $(this).parent();
-            // Força o comportamento relativo no elemento pai
             $linkPai.addClass('position-relative d-block');
-            // Injeta o badge apenas se ele ainda não existir no elemento (evita duplicidade)
+            if ($linkPai.html().indexOf('A partir de 5 anos de idade') === -1) {
+                $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; right: 10px; z-index: 10; background-color: #ffc107; color: #212529;">A partir de 5 anos de idade</span>');
+            }
+        });
+    });
+	// Almoço incluso
+	$.each(["Cânion Chapada Imperial"], function(index, atividade) {
+        $('.cover[alt="' + atividade + '"], .cover[title="' + atividade + '"]').each(function() {
+            const $linkPai = $(this).parent();
+            $linkPai.addClass('position-relative d-block');
             if ($linkPai.html().indexOf('Almoço incluso') === -1) {
                 $linkPai.append('<span class="badge badge-success" style="position: absolute; top: 10px; right: 10px; z-index: 10; color: #fff; background-color: #28a745;">Almoço incluso</span>');
+            }
+        });
+    });
+	// Café incluso
+	$.each(["TRILHA DO TREM NO PARK WAY"], function(index, atividade) {
+        $('.cover[alt="' + atividade + '"], .cover[title="' + atividade + '"]').each(function() {
+            const $linkPai = $(this).parent();
+            $linkPai.addClass('position-relative d-block');
+            if ($linkPai.html().indexOf('Café da manhã incluso') === -1) {
+                $linkPai.append('<span class="badge badge-success" style="position: absolute; top: 10px; right: 10px; z-index: 10; color: #fff; background-color: #28a745;">Café da manhã incluso</span>');
             }
         });
     });
