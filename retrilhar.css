@@ -183,3 +183,30 @@ color: var(--custom-color);
     aspect-ratio: 1 / 1;
     object-fit: cover;
 }
+/* Logo principal — tamanho exibido no computador */
+.navigation img.logo {
+    width: 166px !important;
+    height: 62px !important;
+    object-fit: contain;
+}
+
+/* Selo do TripAdvisor */
+img.sombra-img {
+    width: 130px !important;
+    height: 143px !important;
+    object-fit: contain;
+}
+
+/* Logo do rodapé */
+footer img.img-footer {
+    width: 153px !important;
+    height: 57px !important;
+    object-fit: contain;
+}
+
+/* Logo Cadastur do rodapé */
+footer img.logo {
+    width: 190px !important;
+    height: 60px !important;
+    object-fit: contain;
+}
