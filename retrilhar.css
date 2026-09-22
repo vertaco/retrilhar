@@ -191,39 +191,33 @@ color: var(--custom-color);
     height: 62px !important;
     min-width: 166px !important;
     flex: 0 0 166px !important;
-    overflow: hidden;
+
+    padding: 0 !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
 }
 
 .nav-brand img.logo {
     display: block !important;
-    width: 166px !important;
-    height: 62px !important;
+    width: 100% !important;
+    height: 100% !important;
     max-width: none !important;
-    object-fit: contain;
-    position: relative;
-    top: 2px;
+
+    object-fit: contain !important;
+    object-position: left center;
+    position: static !important;
 }
 
-/* Reserva o espaço do selo */
-img.sombra-img {
-    display: block !important;
-    width: 130px !important;
-    height: 143px !important;
-    max-width: none !important;
-    object-fit: contain;
-}
-
-/* Ajuste responsivo para celular */
 @media (max-width: 575.98px) {
     .nav-brand {
-        width: 136px !important;
-        height: 51px !important;
-        min-width: 136px !important;
-        flex-basis: 136px !important;
+        width: 145px !important;
+        height: 54px !important;
+        min-width: 145px !important;
+        flex: 0 0 145px !important;
     }
 
     .nav-brand img.logo {
-        width: 136px !important;
-        height: 51px !important;
+        width: 100% !important;
+        height: 100% !important;
     }
 }
