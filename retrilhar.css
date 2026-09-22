@@ -152,3 +152,16 @@ ul.footer-bottom-social::before {
     background-color: #e0a800!important;
     border-color: #d39e00!important;
 }
+.accordion .card-header{padding: 0 10px;}
+div.collapse{border: 1px solid #e9edf3;}
+.accordion .card-body{padding: 5px;}
+b, strong {font-weight: bold;}
+.btn-link:after {
+  content: "\f107";
+font-family: Font Awesome\ 5 Free;
+float: right;
+color: var(--custom-color);
+}
+.btn-link.collapsed:after {
+  content: "\f106";
+}
