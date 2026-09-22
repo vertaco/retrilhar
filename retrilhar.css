@@ -184,39 +184,46 @@ color: var(--custom-color);
     object-fit: cover;
 }
 /* Logo principal — tamanho exibido no computador */
+/* Reserva o espaço do logo antes do download da imagem */
 .nav-brand {
-    width: 166px;
-    max-width: calc(100vw - 100px);
+    display: inline-block !important;
+    width: 166px !important;
+    height: 62px !important;
+    min-width: 166px !important;
+    flex: 0 0 166px !important;
+    overflow: hidden;
 }
-.nav-brand img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 400 / 150;
+
+.nav-brand img.logo {
+    display: block !important;
+    width: 166px !important;
+    height: 62px !important;
+    max-width: none !important;
     object-fit: contain;
     position: relative;
     top: 2px;
 }
 
+/* Reserva o espaço do selo */
 img.sombra-img {
-    display: block;
-    width: 130px;
-    height: auto;
-    aspect-ratio: 200 / 220;
-    max-width: 100%;
+    display: block !important;
+    width: 130px !important;
+    height: 143px !important;
+    max-width: none !important;
     object-fit: contain;
 }
 
-/* Logo do rodapé */
-footer img.img-footer {
-    width: 153px !important;
-    height: 57px !important;
-    object-fit: contain;
-}
+/* Ajuste responsivo para celular */
+@media (max-width: 575.98px) {
+    .nav-brand {
+        width: 136px !important;
+        height: 51px !important;
+        min-width: 136px !important;
+        flex-basis: 136px !important;
+    }
 
-/* Logo Cadastur do rodapé */
-footer img.logo {
-    width: 190px !important;
-    height: 60px !important;
-    object-fit: contain;
+    .nav-brand img.logo {
+        width: 136px !important;
+        height: 51px !important;
+    }
 }
