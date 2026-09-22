@@ -165,3 +165,21 @@ color: var(--custom-color);
 .btn-link.collapsed:after {
   content: "\f106";
 }
+
+
+/* Reserva o espaço do carrossel antes das imagens carregarem */
+#carouselExampleIndicators,
+#carouselExampleIndicators .carousel-inner,
+#carouselExampleIndicators .carousel-item {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+}
+
+#carouselExampleIndicators .carousel-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
