@@ -185,15 +185,20 @@ color: var(--custom-color);
 }
 /* Logo principal — tamanho exibido no computador */
 .navigation img.logo {
-    width: 166px !important;
-    height: 62px !important;
+    display: block;
+    width: 166px;
+    height: auto;
+    aspect-ratio: 400 / 150;
+    max-width: 100%;
     object-fit: contain;
 }
 
-/* Selo do TripAdvisor */
 img.sombra-img {
-    width: 130px !important;
-    height: 143px !important;
+    display: block;
+    width: 130px;
+    height: auto;
+    aspect-ratio: 200 / 220;
+    max-width: 100%;
     object-fit: contain;
 }
 
