@@ -1,49 +1,68 @@
+function validarDataNaoPassada(dataInput) {    
+    // Função auxiliar para converter 'DD/MM/AAAA' para um objeto Date
+    function converterParaData(dataStr) {
+        const partes = dataStr.split('/');
+        const dia = parseInt(partes[0], 10);
+        const mes = parseInt(partes[1], 10) - 1; // O mês em JS começa em 0 (Janeiro)
+        const ano = parseInt(partes[2], 10);
+        
+        return new Date(ano, mes, dia);
+    }
+
+    const dataRecebida = converterParaData(dataInput);
+    const dataHoje = new Date();
+    dataHoje.setHours(0, 0, 0, 0);
+    // Compara as datas (retorna true se for maior ou igual a hoje)
+    return dataRecebida >= dataHoje;
+}
 if(location.href.split('/')[3]=='carrinho'){
-	var idReserva = $('[id*=reserva-]:eq(0)').attr('id').split('-')[1];
-	var valorVenda = Number($('[id*=reserva-] b:contains("Sub total"):eq(0)').next().text().replace(/[^0-9-]+/g,'').replace(/(\d+)(\d{2})$/, '$1.$2'));
-	var nomeEvento = $('[id*=reserva-] li:contains("Data"):eq(0)').next().text().split('\n')[0].trim();
-	fbq('track','Purchase',{"value":valorVenda,"currency":'BRL',"content_name":nomeEvento},{"eventID": 'reserva-'+idReserva});
-	gtag('event', 'purchase', {
-      'transaction_id': idReserva,
-      'value': valorVenda,
-      'currency': 'BRL',
-      'items': [
-        {
-          'item_name': nomeEvento, // Nome do passeio
-          'quantity': 1,
-          'price': valorVenda
-        }
-      ]
-    });
-	if(nomeEvento === "TRILHA DO TREM NO PARK WAY"
-	  	|| nomeEvento === "Cachoeira do Dragão"
-	  	|| nomeEvento === "Feriado do Dia da Consciência Negra 2026 - Mambaí"){
-		const dados = {
-		  chave: "8f3c9a2e7b104d65a6e28c91f0b754d3c9a167e482bd05f6e31c8a9472d06b5f",
-		  tipo: $('[id*=reserva-] li:contains("Data"):eq(0)').text().trim().split(' ')[1]+" "+$('[id*=reserva-] li:contains("Data"):eq(0)').next().text().split('\n')[0].trim(),
-		  nome: $('[id*=reserva-]:eq(0)').prev().text().trim().split(' - ')[1],
-		  mensagem: $('[id*=reserva-] b:contains("Sub total"):eq(0)').next().text().trim(),
-		  id: $('[id*=reserva-]:eq(0)').attr('id')?.split('-')[1]
-		};
-		
-		if (!dados.id || !dados.tipo || !dados.mensagem) {
-		  console.error("ID, tipo ou mensagem não encontrados.", dados);
-		} else {
-		  $.ajax({
-		    url: "https://script.google.com/macros/s/AKfycbxnOgrxKIIj7JFSrRUrxT0Z4lrFZsNACMVQGsZJJ0qF1PfNMw7t82XsVNXAbCd7SewP/exec",
-		    type: "POST",
-		    data: dados,
-		    dataType: "json",
-		
-		    success: function (resposta) {
-		      console.log("Resposta:", resposta);
-		    },
-		
-		    error: function (xhr, status, erro) {
-		      console.error("Não foi possível confirmar o envio:", status, erro);
-		      console.log("Confira na planilha o ID:", dados.id);
-		    }
-		  });
+	if(validarDataNaoPassada($('[id*=reserva-] li:contains("Data"):eq(0)').text().trim().split(' ')[1])){
+		var idReserva = $('[id*=reserva-]:eq(0)').attr('id').split('-')[1];
+		var valorVenda = Number($('[id*=reserva-] b:contains("Sub total"):eq(0)').next().text().replace(/[^0-9-]+/g,'').replace(/(\d+)(\d{2})$/, '$1.$2'));
+		var nomeEvento = $('[id*=reserva-] li:contains("Data"):eq(0)').next().text().split('\n')[0].trim();
+		fbq('track','Purchase',{"value":valorVenda,"currency":'BRL',"content_name":nomeEvento},{"eventID": 'reserva-'+idReserva});
+		gtag('event', 'purchase', {
+	      'transaction_id': idReserva,
+	      'value': valorVenda,
+	      'currency': 'BRL',
+	      'items': [
+	        {
+	          'item_name': nomeEvento, // Nome do passeio
+	          'quantity': 1,
+	          'price': valorVenda
+	        }
+	      ]
+	    });
+		if(nomeEvento === "TRILHA DO TREM NO PARK WAY"
+		  	|| nomeEvento === "Cachoeira do Dragão"
+		  	|| nomeEvento === "Feriado do Dia da Consciência Negra 2026 - Mambaí"){
+			const dados = {
+			  chave: "8f3c9a2e7b104d65a6e28c91f0b754d3c9a167e482bd05f6e31c8a9472d06b5f",
+			  tipo: $('[id*=reserva-] li:contains("Data"):eq(0)').text().trim().split(' ')[1]+" "+$('[id*=reserva-] li:contains("Data"):eq(0)').next().text().split('\n')[0].trim(),
+			  nome: $('[id*=reserva-]:eq(0)').prev().text().trim().split(' - ')[1],
+			  mensagem: $('[id*=reserva-] b:contains("Sub total"):eq(0)').next().text().trim(),
+			  id: $('[id*=reserva-]:eq(0)').attr('id')?.split('-')[1]
+			};
+			
+			if (!dados.id || !dados.tipo || !dados.mensagem) {
+			  console.error("ID, tipo ou mensagem não encontrados.", dados);
+			} else {
+			  $.ajax({
+			    url: "https://script.google.com/macros/s/AKfycbxnOgrxKIIj7JFSrRUrxT0Z4lrFZsNACMVQGsZJJ0qF1PfNMw7t82XsVNXAbCd7SewP/exec",
+			    type: "POST",
+			    data: dados,
+			    dataType: "json",
+			
+			    success: function (resposta) {
+			      console.log("Resposta:", resposta);
+			    },
+			
+			    error: function (xhr, status, erro) {
+			      console.error("Não foi possível confirmar o envio:", status, erro);
+			      console.log("Confira na planilha o ID:", dados.id);
+			    }
+			  });
+			}
 		}
 	}
 }
