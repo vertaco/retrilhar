@@ -35,7 +35,8 @@ if(location.href.split('/')[3]=='carrinho'){
 	    });
 		if(nomeEvento === "TRILHA DO TREM NO PARK WAY"
 		  	|| nomeEvento === "Cachoeira do Dragão"
-		  	|| nomeEvento === "Feriado do Dia da Consciência Negra 2026 - Mambaí"){
+		  	|| nomeEvento === "Feriado do Dia da Consciência Negra 2026 - Mambaí"
+		  	|| nomeEvento.indexOf('Artemis') != -1){
 			const dados = {
 			  chave: "8f3c9a2e7b104d65a6e28c91f0b754d3c9a167e482bd05f6e31c8a9472d06b5f",
 			  tipo: $('[id*=reserva-] li:contains("Data"):eq(0)').text().trim().split(' ')[1]+" "+$('[id*=reserva-] li:contains("Data"):eq(0)').next().text().split('\n')[0].trim(),
@@ -276,6 +277,15 @@ function adicionarBadgesCards(){
             $linkPai.addClass('position-relative d-block');
             if ($linkPai.html().indexOf('A partir de 5 anos de idade') === -1) {
                 $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; right: 10px; z-index: 10; background-color: #ffc107; color: #212529;">A partir de 5 anos de idade</span>');
+            }
+        });
+    });
+	$.each(["Artemis"], function(index, atividade) {
+        $('.cover[alt*="' + atividade + '"], .cover[title*="' + atividade + '"]').each(function() {
+            const $linkPai = $(this).parent();
+            $linkPai.addClass('position-relative d-block');
+            if ($linkPai.html().indexOf('A partir de 7 anos de idade') === -1) {
+                $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; right: 10px; z-index: 10; background-color: #ffc107; color: #212529;">A partir de 7 anos de idade</span>');
             }
         });
     });
