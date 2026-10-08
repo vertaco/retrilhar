@@ -33,10 +33,15 @@ if(location.href.split('/')[3]=='carrinho'){
 	        }
 	      ]
 	    });
-		if(nomeEvento === "TRILHA DO TREM NO PARK WAY"
-		  	|| nomeEvento === "Cachoeira do Dragão"
-		  	|| nomeEvento === "Feriado do Dia da Consciência Negra 2026 - Mambaí"
-		  	|| nomeEvento.indexOf('Artemis') != -1){
+		var nomeEmpresa;
+		if(nomeEvento.startsWith("TRILHA DO TREM NO PARK WAY") || nomeEvento.indexOf('Artemis') != -1){
+			nomeEmpresa = 'Cerrado Experience';
+		} else if(nomeEvento.startsWith("Cachoeira do Dragão")){
+			nomeEmpresa = 'Habitat Aventura';
+		} else if(nomeEvento.startsWith('Feriado do Dia da Consciência Negra 2026 - Mambaí')){
+			nomeEmpresa = 'Ecologica Turismo de Natureza';
+		}
+		if(typeof nomeEmpresa !== 'undefined'){
 			const dados = {
 			  chave: "8f3c9a2e7b104d65a6e28c91f0b754d3c9a167e482bd05f6e31c8a9472d06b5f",
 			  tipo: $('[id*=reserva-] li:contains("Data"):eq(0)').text().trim().split(' ')[1]+" "+$('[id*=reserva-] li:contains("Data"):eq(0)').next().text().split('\n')[0].trim(),
@@ -64,6 +69,7 @@ if(location.href.split('/')[3]=='carrinho'){
 			    }
 			  });
 			}
+			 $('div.card-pagamento').replaceWith('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert"><b>Atividade de empresa parceira:</b> esta atividade é prestada e operada pela <b>'+ nomeEmpresa +'</b>.<br><b>Será realizado o contato para concluir o pagamento e confirmar a reserva.</b><br>A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
 		}
 	}
 }
