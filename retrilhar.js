@@ -69,7 +69,7 @@ if(location.href.split('/')[3]=='carrinho'){
 			    }
 			  });
 			}
-			$(function(){
+			$(document).ready(function() {
 			 	$('div.card-pagamento').replaceWith('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert"><b>Atividade de empresa parceira:</b> esta atividade é prestada e operada pela <b>'+ nomeEmpresa +'</b>.<br><b>Será realizado o contato para concluir o pagamento e confirmar a reserva.</b><br>A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
 			});
 		}
