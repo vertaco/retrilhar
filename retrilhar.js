@@ -34,12 +34,13 @@ if(location.href.split('/')[3]=='carrinho'){
 	      ]
 	    });
 		var nomeEmpresa;
+		var mensagem = encodeURIComponent("Realizei uma reserva pelo site da Vertaco e preciso concluir o pagamento.\n"+$('[id*=reserva-]:eq(0)').prev().text().trim());
 		if(nomeEvento.startsWith("TRILHA DO TREM NO PARK WAY") || nomeEvento.indexOf('Artemis') != -1){
-			nomeEmpresa = '<b>Cerrado Experience</b>. Dúvidas <a href="https://web.whatsapp.com/send?phone=5561999042368" target="_blank">(61) 99904-2368</a>';
+			nomeEmpresa = '<b>Cerrado Experience</b>.<br><a href="https://web.whatsapp.com/send?phone=5561999042368?text='+mensagem+'" target="_blank"><u>Clique aqui para concluir o pagamento (61) 99904-2368.</u></a>';
 		} else if(nomeEvento.startsWith("Cachoeira do Dragão")){
-			nomeEmpresa = '<b>Habitat Aventura</b>. Dúvidas <a href="https://web.whatsapp.com/send?phone=5561993498686" target="_blank">(61) 99349-8686</a>';
+			nomeEmpresa = '<b>Habitat Aventura</b>.<br><a href="https://web.whatsapp.com/send?phone=5561993498686?text='+mensagem+'" target="_blank"><u>Clique aqui para concluir o pagamento (61) 99349-8686.</u></a>';
 		} else if(nomeEvento.startsWith('Feriado do Dia da Consciência Negra 2026 - Mambaí')){
-			nomeEmpresa = '<b>Ecologica Turismo de Natureza</b>. Dúvidas <a href="https://web.whatsapp.com/send?phone=5561998873827" target="_blank">(61) 99887-3827</a>';
+			nomeEmpresa = '<b>Ecologica Turismo de Natureza</b>.<br><a href="https://web.whatsapp.com/send?phone=5561998873827?text='+mensagem+'" target="_blank"><u>Clique aqui para concluir o pagamento (61) 99887-3827.</u></a>';
 		}
 		if(typeof nomeEmpresa !== 'undefined'){
 			const dados = {
@@ -69,7 +70,7 @@ if(location.href.split('/')[3]=='carrinho'){
 			    }
 			  });
 			}
-			$('#divCheckout').replaceWith('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert">Esta atividade é prestada e operada pela '+ nomeEmpresa +'.<br><b>Será realizado o contato para concluir o pagamento e confirmar a reserva.</b><br>A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
+			$('#divCheckout').replaceWith('<div class="form-group" id="aviso-empresas-participantes"><div class="alert alert-info p-2" role="alert">Esta atividade é prestada e operada pela '+ nomeEmpresa +'<br><br/>A Vertaco atua na divulgação, reserva e intermediação comercial da contratação.</div></div>');
 		}
 	}
 }
