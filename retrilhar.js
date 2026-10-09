@@ -15,6 +15,8 @@ function validarDataNaoPassada(dataInput) {
     // Compara as datas (retorna true se for maior ou igual a hoje)
     return dataRecebida >= dataHoje;
 }
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','AW-1001844227');
 if(location.href.split('/')[3]=='carrinho'){
 	if(validarDataNaoPassada($('[id*=reserva-] li:contains("Data"):eq(0)').text().trim().split(' ')[1])){
 		var idReserva = $('[id*=reserva-]:eq(0)').attr('id').split('-')[1];
@@ -74,8 +76,6 @@ if(location.href.split('/')[3]=='carrinho'){
 		}
 	}
 }
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-gtag('js',new Date());gtag('config','AW-1001844227');
 $(function(){
 	/*$('#formReservaNova').on('submit',function(e){gtag('event','conversion',{'send_to':'AW-1001844227/_ne1CIWJxYcYEIPc290D'})});*/
 	$('<h3>Próximas saídas em Brasília, Goiás e região</h3>').appendTo($('.sec-heading:eq(0)'));
