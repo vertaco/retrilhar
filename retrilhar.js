@@ -34,7 +34,7 @@ if(location.href.split('/')[3]=='carrinho'){
 	      ]
 	    });
 		var nomeEmpresa;
-		var mensagem = encodeURIComponent("Realizei uma reserva pelo site da Vertaco e preciso concluir o pagamento.\n"+$('[id*=reserva-]:eq(0)').prev().text().trim());
+		var mensagem = encodeURIComponent("Realizei uma reserva pelo site da *Vertaco* e preciso concluir o pagamento.\n"+nomeEvento +'\n'+$('[id*=reserva-]:eq(0)').prev().text().trim());
 		if(nomeEvento.startsWith("TRILHA DO TREM NO PARK WAY") || nomeEvento.indexOf('Artemis') != -1){
 			nomeEmpresa = '<b>Cerrado Experience</b>.<br><a href="https://web.whatsapp.com/send?phone=556199042368&text='+mensagem+'" target="_blank"><u>Clique aqui para concluir o pagamento (61) 99904-2368.</u></a>';
 		} else if(nomeEvento.startsWith("Cachoeira do Dragão")){
