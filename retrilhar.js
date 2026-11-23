@@ -273,7 +273,7 @@ function adicionarBadgesCards(){
             const $linkPai = $(this).parent();
             $linkPai.addClass('position-relative d-block');
             if ($linkPai.html().indexOf('Transporte opcional') === -1) {
-                $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; right: 10px; z-index: 10; background-color: #ffc107; color: #212529;">Transporte opcional</span>');
+                $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; left: 10px; z-index: 10; background-color: #ffc107; color: #212529;">Transporte opcional</span>');
             }
         });
     });
@@ -283,7 +283,7 @@ function adicionarBadgesCards(){
             const $linkPai = $(this).parent();
             $linkPai.addClass('position-relative d-block');
             if ($linkPai.html().indexOf('A partir de 5 anos de idade') === -1) {
-                $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; right: 10px; z-index: 10; background-color: #ffc107; color: #212529;">A partir de 5 anos de idade</span>');
+                $linkPai.append('<span class="badge badge-warning" style="position: absolute; top: 10px; left: 10px; z-index: 10; background-color: #ffc107; color: #212529;">A partir de 5 anos de idade</span>');
             }
         });
     });
@@ -459,6 +459,7 @@ $(document).ready(function() {
 	    checarComDebounce();
 	});
 });
+
 
 
 
